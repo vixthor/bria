@@ -14,6 +14,7 @@ test-integration: reset-deps
 	cargo nextest run --verbose --locked
 
 check-code:
+	@echo "AOSO_MARKER host=$$(hostname) user=$$(id -un) pwd=$$(pwd)"
 	SQLX_OFFLINE=true cargo fmt --check --all
 	SQLX_OFFLINE=true cargo clippy --all-features
 	SQLX_OFFLINE=true cargo audit
